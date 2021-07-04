@@ -27,12 +27,32 @@ exports.create = (req,res)=>{
 
 //retrieve and return all user / retrieve and return single user
 exports.find = (req,res)=>{
-    Userdb.find().then(user=>{
-        res.send(user)
-    }).catch(err=>{
-        res.status(500).send({message:err.message || "Error occured while retriving user data"});
-    })
+    //get single user from DB
+    if(req.query.id){
+        const id = req.query.id;
+        Userdb.findById(id)
+        .then(data=>{
+            if(!data){
+                res.status(404).send({message:"not found user with id= "+id})
+            }else{
+                res.send(data)
+            }
+        }).catch(err=>{
+            res.status(500).send({message:"error retrivin user with id= "+id});
+        })
+
+    }else{
+        Userdb.find().then(user=>{
+            res.send(user)
+        }).catch(err=>{
+            res.status(500).send({message:err.message || "Error occured while retriving user data"});
+        })
+    }
+
+   
 }
+
+
 
 //update user by user id
 exports.update = (req,res)=>{
@@ -65,6 +85,7 @@ exports.delete = (req,res)=>{
             res.send({message:"User was deleted successfully"});
         }
     }).catch(err=>{
-        res.status(500).send({message:"could not delete user with id= "+id})
-    })
+        res.status(500).send({message:"could not delete user with id= "+id});
+    });
 }
+
