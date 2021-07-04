@@ -28,23 +28,9 @@ app.use('/img',express.static(path.resolve(__dirname,"assets/img")))
 app.use('/js',express.static(path.resolve(__dirname,"assets/js")))
 
 
-//getting response
-app.get('/',(req,res)=>{
-    // res.render('index');
-    res.render('index');
-})
+//routers
+app.use('/',require('./server/routes/router'));
 
-//add user page ejs file
-app.get('/add-user',(req,res)=>{
-    // res.render('index');
-    res.render('add-user');
-})
-
-//update user page
-app.get('/update-user',(req,res)=>{
-    // res.render('index');
-    res.render('update-user');
-})
 
 //port
 app.listen(PORT,()=>{
