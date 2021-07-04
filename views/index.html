@@ -7,6 +7,7 @@
     <title>User Registration System</title>
     <!-- font awsome cdn -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
 
@@ -15,7 +16,7 @@
         <nav>
             <div class="container">
                 <div class="text-center">
-                    <a href="/" class="nav-brand text-dark">User Management System</a>
+                    <a href="/" class="nav-brand text-dark">User Registration System</a>
                 </div>
             </div>
         </nav>
@@ -24,16 +25,15 @@
     <!-- main side  -->
 
     <main id="main-site">
-        <div class="conatiner">
-            <div class="box-nav d-flex-jusitfy-between">
+        <div class="container">
+            <div class="box-nav d-flex jusitfy-between">
                 <a href="/add-user" class="border-shadow">
                 <span class="text-gradient">
                     New User <i class="fas fa-user"></i>
                 </span>
             </a>
             </div>
-        </div>
-    </main>
+   
 
     <!-- form handle  -->
 
@@ -62,13 +62,18 @@
                                 <i class="fas fa-pencil-alt"></i>
                             </span>
                         </a>
+                        <a class="btn border-shadow update">
+                            <span class="text-gradient">
+                                <i class="fas fa-times"></i>
+                            </span>
+                        </a>
                     </td>
                 </tr>
             </tbody>
         </table>
-
     </form>
-
+</div>
+</main>
      
 </body>
 </html>
